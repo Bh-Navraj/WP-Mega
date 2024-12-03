@@ -30,35 +30,54 @@ get_header(); // Include the header
         </div>
     </section>
     <section class="content">
-    <?php
-    // The WordPress Query
-    $args = array(
-        'post_type'      => 'post', // Change 'post' to your custom post type if needed
-        'posts_per_page' => 10,     // Number of posts to display
-        'order'          => 'DESC', // Order by descending date
-        'orderby'        => 'date'  // Order by date
-    );
+        <div class="container">
+        <?php
+        // The WordPress Query
+        $args = array(
+            'post_type'      => 'post', // Change 'post' to your custom post type if needed
+            'posts_per_page' => 10,     // Number of posts to display
+            'order'          => 'DESC', // Order by descending date
+            'orderby'        => 'date'  // Order by date
+        );
 
-    $query = new WP_Query($args);
+        $query = new WP_Query($args);
+        ?>
 
-    // The Loop
-    if ($query->have_posts()) :
-        while ($query->have_posts()) : $query->the_post();
-    ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <div class="post-meta">
-                <span class="post-date"><?php echo get_the_date(); ?></span>
-                <span class="post-author">By <?php the_author(); ?></span>
+        <div class="span-row post-row d-flex">
+            <?php
+            // The Loop
+            if ($query->have_posts()) :
+                while ($query->have_posts()) : $query->the_post();
+            ?>
+
+            
+            <div class="span-4">
+            <article class="custom-card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <figure>
+                <?php 
+                    // Check if the post has a thumbnail
+                    if (has_post_thumbnail()) {
+                        // Display the post thumbnail with a specific size
+                        the_post_thumbnail('medium'); // You can use 'thumbnail', 'medium', 'large', or a custom size
+                    }
+                ?>
+                </figure>
+                <div class="card-desc">    
+                    <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <div class="post-meta">
+                        <span class="post-date"><?php echo get_the_date(); ?></span>
+                        <span class="post-author">By <?php the_author(); ?></span>
+                    </div>
+                    <div class="post-content">
+                        <?php the_excerpt(); ?>
+                    </div>
+                </div>    
+            </article>
             </div>
-            <div class="post-content">
-                <?php the_excerpt(); ?>
-            </div>
-        </article>
-    <?php
-        endwhile;
-    else :
-    ?>
+        <?php
+            endwhile;
+        else :
+        ?>
         <p>No posts found.</p>
     <?php
     endif;
@@ -66,6 +85,8 @@ get_header(); // Include the header
     // Reset Post Data
     wp_reset_postdata();
     ?>
+    </div><!-- Post row -->
+    </div><!-- Container end-->
 </section>
 </div>
 <?php get_footer(); // Include the footer ?>

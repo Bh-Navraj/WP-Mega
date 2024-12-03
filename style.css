@@ -1034,6 +1034,28 @@ textarea {
 	width: 1200px;
 	margin: 0 auto;
 }
+.span-row {
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	gap: 30px;
+}
+.span-3 {
+	width: calc(25% - 30px);
+}
+.span-4 {
+	width: calc(33.33% - 30px);
+}
+.span-6 {
+	width: calc(50% - 30px);
+}
+.span-8 {
+	width: calc(75% - 30px);
+}
+.span-12 {
+	width: calc(100% - 30px);
+}
+
 #site-branding img {
 	
 }
@@ -1074,4 +1096,22 @@ textarea {
 }
 .hero-content p {
 	font-size: 1.5rem;
+}
+.custom-card {
+	width: 100%;
+}
+.custom-card figure {
+	margin: 0;
+	padding: 0;
+	line-height: 0;
+}
+.custom-card figure img {
+	margin: 0;
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+.card-desc {
+	padding: 16px 24px;
+	background-color: var(--gray-color);
 }

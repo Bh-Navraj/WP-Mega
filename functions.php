@@ -170,12 +170,19 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+// Adding Read More as Excerpt
 
+function custom_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
 
 
 
 function megatheme_customize_register($wp_customize) {
-    // Add a new section for the Hero Banner
+    
+
+	// Add a new section for the Hero Banner
     $wp_customize->add_section('hero_banner_section', array(
         'title'       => __('Hero Banner', 'megatheme'),
         'description' => __('Set the hero banner image, title, and description.', 'megatheme'),
@@ -221,6 +228,8 @@ function megatheme_customize_register($wp_customize) {
         'type'     => 'textarea',
         'section'  => 'hero_banner_section',
     ));
+
+	
 }
 add_action('customize_register', 'megatheme_customize_register');
 
