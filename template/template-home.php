@@ -31,6 +31,7 @@ get_header(); // Include the header
     </section>
     <section class="content">
         <div class="container">
+            
         <?php
         // The WordPress Query
         $args = array(
@@ -42,14 +43,18 @@ get_header(); // Include the header
 
         $query = new WP_Query($args);
         ?>
-
+        <div class="text-center w-100">
+            <h1>Lastest Posts</h1>
+        </div>
         <div class="span-row post-row d-flex">
+
             <?php
             // The Loop
             if ($query->have_posts()) :
                 while ($query->have_posts()) : $query->the_post();
             ?>
-
+            
+            
             
             <div class="span-4">
             <article class="custom-card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -62,12 +67,12 @@ get_header(); // Include the header
                     }
                 ?>
                 </figure>
-                <div class="card-desc">    
-                    <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="post-meta">
+                <div class="card-desc"> 
+                <div class="post-meta">
                         <span class="post-date"><?php echo get_the_date(); ?></span>
-                        <span class="post-author">By <?php the_author(); ?></span>
-                    </div>
+                        <!-- <span class="post-author">By <?php the_author(); ?></span> -->
+                    </div>   
+                    <h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                     <div class="post-content">
                         <?php the_excerpt(); ?>
                     </div>

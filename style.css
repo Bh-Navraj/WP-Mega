@@ -544,11 +544,11 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #4169e1;
+	color: var(--primary-color);
 }
 
 a:visited {
-	color: #800080;
+	color: var(--primary-color);
 }
 
 a:hover,
@@ -1055,6 +1055,12 @@ textarea {
 .span-12 {
 	width: calc(100% - 30px);
 }
+.w-100 {
+	width: 100%;
+}
+.text-center {
+	text-align: center;
+}
 
 #site-branding img {
 	
@@ -1101,6 +1107,8 @@ textarea {
 	width: 100%;
 }
 .custom-card figure {
+	height: 200px;
+	background-color: #cccccc;
 	margin: 0;
 	padding: 0;
 	line-height: 0;
@@ -1114,4 +1122,35 @@ textarea {
 .card-desc {
 	padding: 16px 24px;
 	background-color: var(--gray-color);
+}
+.card-desc h3 {
+	margin: 8px 0;
+}
+.card-desc h3 a {
+	text-decoration: none;
+}
+.post-meta span {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+/*-- Theme Footer **/
+.site-footer {	
+	background-color: var(--primary-color);
+	padding: 40px 0;
+	margin: 0;
+	color: var(--white);
+	text-align: center;
+}
+.site-footer a {
+	color: var(--white);
+}	
+.site-footer .footer-contact {
+	text-align: center;
+}
+.site-footer .contact-info p {
+	margin-right: 16px;
+}
+.content {
+	margin: 32px 0;
 }

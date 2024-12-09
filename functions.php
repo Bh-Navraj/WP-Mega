@@ -229,6 +229,61 @@ function megatheme_customize_register($wp_customize) {
         'section'  => 'hero_banner_section',
     ));
 
+
+	// Add Contact section
+    $wp_customize->add_section('contact_section', array(
+        'title'    => __('Contact Information', 'yourtheme'),
+        'priority' => 30,
+    ));
+
+    // Phone Field
+    $wp_customize->add_setting('contact_phone', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_phone_control', array(
+        'label'   => __('Phone Number', 'yourtheme'),
+        'section' => 'contact_section',
+        'settings' => 'contact_phone',
+        'type'    => 'text',
+    ));
+
+    // Email Field
+    $wp_customize->add_setting('contact_email', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_email_control', array(
+        'label'   => __('Email Address', 'yourtheme'),
+        'section' => 'contact_section',
+        'settings' => 'contact_email',
+        'type'    => 'email',
+    ));
+
+    // Address Field
+    $wp_customize->add_setting('contact_address', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_address_control', array(
+        'label'   => __('Address', 'yourtheme'),
+        'section' => 'contact_section',
+        'settings' => 'contact_address',
+        'type'    => 'textarea',
+    ));
+
+    // Map Embed Code
+    $wp_customize->add_setting('contact_map', array(
+        'default'   => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('contact_map_control', array(
+        'label'   => __('Google Map Embed Code', 'yourtheme'),
+        'section' => 'contact_section',
+        'settings' => 'contact_map',
+        'type'    => 'textarea',
+    ));
+
 	
 }
 add_action('customize_register', 'megatheme_customize_register');
