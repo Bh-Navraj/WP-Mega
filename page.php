@@ -15,24 +15,40 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<div class="main-content inner-page">
+	<section class="hero">
+        <?php
+        // Fetch the Customizer values
+        $innerbanner_image = get_theme_mod('inner_banner_image');
+        ?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+        <div class="hero-banner inner-hero-banner d-flex align-center justify-start" style="background-image: url('<?php echo esc_url($innerbanner_image); ?>');">
+            <div class="container">
+                <div class="hero-inerbanner-content">
+                <?php 
+                    $title = get_the_title(); 
+                    if ($title): 
+                    ?>
+                        <h1><?php echo esc_html($title); ?></h1>
+                    <?php endif; ?>
+                </div>
+            </div><!-- container end -->
+        </div>
+    </section>
 
-			get_template_part( 'template-parts/content', 'page' );
+	
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+	<section class="content">
+        <div class="container">
+             <div class="content-dec">
+                <?php if (the_content()): ?>
+                    <?php the_content() ?>
+                <?php endif; ?>    
+             </div>
+		</div>
+	</section>	
 
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
+</div><!-- main-content end -->		 
 
 <?php
-get_sidebar();
 get_footer();

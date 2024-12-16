@@ -785,7 +785,7 @@ textarea {
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	margin: 0;
 }
 
 .updated:not(.published) {
@@ -837,6 +837,10 @@ textarea {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
 	display: inline-block;
+	margin: 12px 0;
+}
+.custom-logo {
+	
 }
 
 /* Captions
@@ -1069,6 +1073,9 @@ textarea {
 .main-navigation {
 
 }
+.main-content {
+	min-height: 78vh;
+}
 .home figure,
 .home .entry-content {
 	margin-top: 0 !important;
@@ -1091,6 +1098,35 @@ textarea {
 	background-size: cover;
 	background-position: center;
 	color: var(--white);
+	position: relative;
+	z-index: 1;
+}
+.inner-hero-banner {
+	min-height: 350px;
+}
+.hero-banner:after {
+	content: "";
+	background-color: rgba(0,0,0,0.3);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+
+}
+.hero-inerbanner-content {
+	text-align: center;
+	color: #ffffff;
+}
+.hero-inerbanner-content a {
+	color: #ffffff;
+	margin-right: 16px;
+}
+.hero-inerbanner-content h1 {
+	text-align: center;
+	font-size: 3rem;
+	line-height: 1.3;
 }
 .hero-content {
 	max-width: 600px;

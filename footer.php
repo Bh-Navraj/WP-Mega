@@ -19,16 +19,12 @@
 					$phone   = get_theme_mod('contact_phone', 'Not Available');
 					$email   = get_theme_mod('contact_email', 'Not Available');
 					$address = get_theme_mod('contact_address', 'Not Available');
-					$map     = get_theme_mod('contact_map', '');
 				?>
 
 				<div class="contact-info d-flex align-items-center">
 					<p><strong>Phone:</strong> <?php echo esc_html($phone); ?></p>
 					<p><strong>Email:</strong> <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></p>
 					<p><strong>Address:</strong> <?php echo nl2br(esc_html($address)); ?></p>
-					<?php if ($map) : ?>
-						<div class="map"><?php echo $map; // Map embed code (ensure it's sanitized appropriately) ?></div>
-					<?php endif; ?>
 				</div>
 
 				</div>

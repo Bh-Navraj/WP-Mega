@@ -205,6 +205,22 @@ function megatheme_customize_register($wp_customize) {
         )
     ));
 
+	// Inner Hero Banner Image Setting
+    $wp_customize->add_setting('inner_banner_image', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'inner_banner_image',
+        array(
+            'label'    => __('Inner Banner Image', 'megatheme'),
+            'section'  => 'hero_banner_section',
+            'settings' => 'inner_banner_image',
+        )
+    ));
+
     // Hero Title Setting
     $wp_customize->add_setting('hero_title', array(
         'default'           => '',
@@ -232,7 +248,7 @@ function megatheme_customize_register($wp_customize) {
 
 	// Add Contact section
     $wp_customize->add_section('contact_section', array(
-        'title'    => __('Contact Information', 'yourtheme'),
+        'title'    => __('Contact Information', 'megatheme'),
         'priority' => 30,
     ));
 
@@ -242,7 +258,7 @@ function megatheme_customize_register($wp_customize) {
         'transport' => 'refresh',
     ));
     $wp_customize->add_control('contact_phone_control', array(
-        'label'   => __('Phone Number', 'yourtheme'),
+        'label'   => __('Phone Number', 'megatheme'),
         'section' => 'contact_section',
         'settings' => 'contact_phone',
         'type'    => 'text',
@@ -254,7 +270,7 @@ function megatheme_customize_register($wp_customize) {
         'transport' => 'refresh',
     ));
     $wp_customize->add_control('contact_email_control', array(
-        'label'   => __('Email Address', 'yourtheme'),
+        'label'   => __('Email Address', 'megatheme'),
         'section' => 'contact_section',
         'settings' => 'contact_email',
         'type'    => 'email',
@@ -266,7 +282,7 @@ function megatheme_customize_register($wp_customize) {
         'transport' => 'refresh',
     ));
     $wp_customize->add_control('contact_address_control', array(
-        'label'   => __('Address', 'yourtheme'),
+        'label'   => __('Address', 'megatheme'),
         'section' => 'contact_section',
         'settings' => 'contact_address',
         'type'    => 'textarea',
@@ -278,7 +294,7 @@ function megatheme_customize_register($wp_customize) {
         'transport' => 'refresh',
     ));
     $wp_customize->add_control('contact_map_control', array(
-        'label'   => __('Google Map Embed Code', 'yourtheme'),
+        'label'   => __('Google Map Embed Code URL', 'megatheme'),
         'section' => 'contact_section',
         'settings' => 'contact_map',
         'type'    => 'textarea',

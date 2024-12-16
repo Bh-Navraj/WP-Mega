@@ -6,7 +6,7 @@ get_header(); // Include the header
 ?>
 
 
-<div class="home-page">
+<div class="main-content home-page">
     <section class="hero">
         <?php
             // Fetch the Customizer values

@@ -8,27 +8,9 @@
  */
 
 ?>
+<div class="main-content inner-page" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-	<div class="container">
-		<?php
 		
-			if (!is_front_page()){
-			the_title( '<h1 class="entry-title">', '</h1>' );
-			}
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				nepalmega_posted_on();
-				nepalmega_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-		</div>
-	</header><!-- .entry-header -->
 
 	<?php nepalmega_post_thumbnail(); ?>
 
